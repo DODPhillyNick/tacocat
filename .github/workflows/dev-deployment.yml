@@ -1,4 +1,4 @@
-name : "Deploy Production on Push to Main"
+name : "Deploy Development on Push to Main"
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - '**.tf'
-      - 'prod.tfvars'
+      - 'dev.tfvars'
 
 env:
   TF_LOG: INFO
@@ -16,7 +16,7 @@ env:
   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
   ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-  ENVIRONMENT: prod
+  ENVIRONMENT: dev
 
 jobs:
   terraform:
